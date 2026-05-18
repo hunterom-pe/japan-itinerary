@@ -15,7 +15,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
     label: "Kabukicho neon",
     accent: "#ff2e88",
     accentSoft: "#3a0f29",
-    ink: "#1a0510",
+    ink: "#f7d6e6",
     paper: "#0e0612",
     glow: "0 0 24px rgba(255,46,136,0.45)",
     pattern: "asanoha",
