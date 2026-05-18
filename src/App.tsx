@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { itinerary, tripMeta } from "./data/itinerary";
-import { themes } from "./data/themes";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import "./styles/app.css";
 
@@ -51,7 +50,7 @@ export default function App() {
         <h2 className="section-title">
           <span className="section-title__mark">行</span> The fourteen days
         </h2>
-        <nav className="jumper" aria-label="Jump to day">
+        <nav className="jumper jumper--standalone" aria-label="Jump to day">
           <ol className="jumper__row">
             {itinerary.map((day) => {
               const allDone =
@@ -70,49 +69,6 @@ export default function App() {
             })}
           </ol>
         </nav>
-        <ol className="day-grid">
-          {itinerary.map((day) => {
-            const theme = themes[day.themeId];
-            const dayChecks = day.checklist;
-            const dayDone = dayChecks.filter((c) => done[`${day.num}:${c}`]).length;
-            return (
-              <li key={day.num}>
-                <Link
-                  to={`/day/${day.num}`}
-                  className="card"
-                  style={
-                    {
-                      "--accent": theme.accent,
-                      "--accent-soft": theme.accentSoft,
-                      "--ink": theme.ink,
-                      "--paper": theme.paper,
-                    } as React.CSSProperties
-                  }
-                  data-pattern={theme.pattern}
-                >
-                  <div className="card__num">
-                    <span className="card__day">Day</span>
-                    <span className="card__numV">{day.num}</span>
-                  </div>
-                  <div className="card__body">
-                    <div className="card__kanji" aria-hidden="true">
-                      {day.kanji}
-                    </div>
-                    <div className="card__city">{day.city}</div>
-                    <div className="card__title">{day.title}</div>
-                    <div className="card__tagline">{day.tagline}</div>
-                  </div>
-                  <div className="card__foot">
-                    <span className="card__chip">{theme.label}</span>
-                    <span className="card__progress">
-                      {dayDone}/{dayChecks.length}
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-        </ol>
       </section>
 
       <section className="ideas">
