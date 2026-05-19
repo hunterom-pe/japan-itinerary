@@ -21,6 +21,11 @@ export default function App() {
         <h1 className="hero__title">{tripMeta.title}</h1>
         <p className="hero__sub">— {tripMeta.subtitle} —</p>
         <p className="hero__blurb">{tripMeta.blurb}</p>
+        <div style={{ marginTop: 24 }}>
+          <Link to="/hub" className="hub-link" style={{ display: "inline-flex", background: "var(--paper-grain)", textDecoration: "none", color: "var(--ink-base)", border: "1px solid var(--rule)", padding: "12px 24px", borderRadius: 999, fontWeight: 600, fontSize: 15, transition: "all 0.2s" }}>
+            🚇 Transit & Emergency Hub
+          </Link>
+        </div>
       </header>
 
       <section className="prep">
