@@ -2,6 +2,7 @@ import type { ThemeId } from "./itinerary";
 
 export type ThemeDef = {
   label: string;
+  vibe: "neo-tokyo" | "traditional";
   accent: string;
   accentSoft: string;
   ink: string;
@@ -13,6 +14,7 @@ export type ThemeDef = {
 export const themes: Record<ThemeId, ThemeDef> = {
   "neon-tokyo": {
     label: "Kabukicho neon",
+    vibe: "neo-tokyo",
     accent: "#ff2e88",
     accentSoft: "#3a0f29",
     ink: "#f7d6e6",
@@ -22,6 +24,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "mecha-noir": {
     label: "Mecha noir",
+    vibe: "neo-tokyo",
     accent: "#5bd6ff",
     accentSoft: "#10222e",
     ink: "#dbe7ef",
@@ -31,6 +34,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "ghibli-whimsy": {
     label: "Whimsy cream",
+    vibe: "traditional",
     accent: "#6fa86b",
     accentSoft: "#e9f0d6",
     ink: "#2c3322",
@@ -39,6 +43,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "alpine-wood": {
     label: "Alpine wood",
+    vibe: "traditional",
     accent: "#7a5230",
     accentSoft: "#efe2cd",
     ink: "#2c1f12",
@@ -47,6 +52,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "thatch-mountain": {
     label: "Thatched roof",
+    vibe: "traditional",
     accent: "#9b6a3a",
     accentSoft: "#ece1cb",
     ink: "#322415",
@@ -55,6 +61,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "crimson-shrine": {
     label: "Vermillion torii at night",
+    vibe: "traditional",
     accent: "#e63946",
     accentSoft: "#3a0d0d",
     ink: "#f3e2c4",
@@ -64,6 +71,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "moss-stone": {
     label: "Moss & stone",
+    vibe: "traditional",
     accent: "#5f7a3b",
     accentSoft: "#dfe7cd",
     ink: "#23301a",
@@ -72,6 +80,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "ink-cedar": {
     label: "Ink & cedar",
+    vibe: "traditional",
     accent: "#9aa3a1",
     accentSoft: "#1e2422",
     ink: "#d6d6cf",
@@ -80,6 +89,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "dotonbori-glow": {
     label: "Dotonbori glow",
+    vibe: "neo-tokyo",
     accent: "#ffb347",
     accentSoft: "#3a1f0a",
     ink: "#fff4e0",
@@ -89,6 +99,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "crt-retro": {
     label: "CRT retro",
+    vibe: "neo-tokyo",
     accent: "#7af0a7",
     accentSoft: "#0f2418",
     ink: "#d9ffe6",
@@ -98,6 +109,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "peace-white": {
     label: "Peace white",
+    vibe: "traditional",
     accent: "#2f6dac",
     accentSoft: "#e1ecf6",
     ink: "#1e2a36",
@@ -106,6 +118,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "vermillion-tide": {
     label: "Vermillion tide",
+    vibe: "traditional",
     accent: "#c0392b",
     accentSoft: "#f7d6cf",
     ink: "#2a0f0a",
@@ -114,6 +127,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "muted-gold": {
     label: "Muted gold",
+    vibe: "traditional",
     accent: "#a8854d",
     accentSoft: "#ece0c3",
     ink: "#2b2317",
@@ -122,6 +136,7 @@ export const themes: Record<ThemeId, ThemeDef> = {
   },
   "quiet-grey": {
     label: "Quiet grey",
+    vibe: "traditional",
     accent: "#8a8a8a",
     accentSoft: "#dedede",
     ink: "#272727",
@@ -129,3 +144,4 @@ export const themes: Record<ThemeId, ThemeDef> = {
     pattern: "ink",
   },
 };
+

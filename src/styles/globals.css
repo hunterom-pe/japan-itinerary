@@ -1,15 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
 
 :root {
-  --paper-base: #f5efe1;
-  --paper-grain: #ede4cf;
-  --ink-base: #1a1614;
-  --ink-soft: #4a423a;
-  --rule: #d6c7a3;
+  --paper-base: #f7f4ec;
+  --paper-grain: #efe8d8;
+  --ink-base: #1c1815;
+  --ink-soft: #5a524a;
+  --rule: #dfd4b8;
   --hinomaru: #bc002d;
   --accent-default: #bc002d;
   --serif: "Shippori Mincho", "Noto Serif JP", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --sans: "Zen Kaku Gothic New", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tech: "Outfit", "Inter", sans-serif;
 }
 
 * {

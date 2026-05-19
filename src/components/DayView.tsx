@@ -31,6 +31,7 @@ export default function DayView() {
     <div
       className="page page--day"
       data-pattern={theme.pattern}
+      data-vibe={theme.vibe}
       style={
         {
           "--accent": theme.accent,

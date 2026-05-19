@@ -16,25 +16,37 @@
 
 .hero {
   text-align: center;
-  padding: 24px 0 36px;
+  padding: 40px 0 48px;
   position: relative;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__mark {
   position: relative;
   display: inline-block;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 16px;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 24px;
 }
 
 .hero__sun {
   position: absolute;
   inset: 0;
-  background: var(--hinomaru);
+  background: linear-gradient(135deg, #d34a4a, #bc002d);
   border-radius: 50%;
-  opacity: 0.92;
-  box-shadow: 0 0 60px rgba(188, 0, 45, 0.25);
+  opacity: 0.95;
+  box-shadow: 0 0 80px rgba(188, 0, 45, 0.15), inset 0 -4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__mark:hover .hero__sun {
+  transform: scale(1.02);
+  box-shadow: 0 0 100px rgba(188, 0, 45, 0.2), inset 0 -4px 12px rgba(0,0,0,0.1);
 }
 
 .hero__brush {
@@ -44,34 +56,38 @@
   align-items: center;
   justify-content: center;
   font-family: var(--serif);
-  font-size: 38px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 500;
   color: var(--paper-base);
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .hero__title {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(28px, 5vw, 44px);
-  margin: 8px 0 6px;
-  letter-spacing: -0.01em;
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 12px 0 8px;
+  letter-spacing: 0.02em;
+  color: var(--ink-base);
 }
 
 .hero__sub {
-  font-family: var(--serif);
+  font-family: var(--sans);
   color: var(--ink-soft);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   font-size: 13px;
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .hero__blurb {
   max-width: 620px;
   margin: 0 auto;
   color: var(--ink-soft);
-  font-size: 15.5px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: var(--sans);
 }
 
 /* ===== Section title ===== */
@@ -192,29 +208,30 @@
   min-width: 44px;
   min-height: 36px;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--paper-grain);
+  border-radius: 8px;
+  background: var(--paper-base);
   border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,0.05);
   color: var(--ink-soft);
   font-family: var(--serif);
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease,
-    transform 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .jumper__chip--done {
-  background: color-mix(in srgb, var(--hinomaru) 12%, var(--paper-grain));
-  border-color: color-mix(in srgb, var(--hinomaru) 35%, var(--rule));
+  background: color-mix(in srgb, var(--hinomaru) 8%, var(--paper-base));
+  border-color: color-mix(in srgb, var(--hinomaru) 25%, transparent);
   color: var(--hinomaru);
 }
 
 .jumper__chip:hover {
   border-color: var(--hinomaru);
   color: var(--hinomaru);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -4px rgba(188, 0, 45, 0.15);
 }
 
 .day-grid {
