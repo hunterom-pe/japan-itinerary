@@ -4,12 +4,14 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import DayView from "./components/DayView";
 import ScrollToTop from "./components/ScrollToTop";
+import Phrasebook from "./components/Phrasebook";
 import "./styles/globals.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HashRouter>
       <ScrollToTop />
+      <Phrasebook />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/day/:num" element={<DayView />} />
