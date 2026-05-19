@@ -2,8 +2,10 @@ import { Link, useParams } from "react-router-dom";
 import { itinerary } from "../data/itinerary";
 import { themes } from "../data/themes";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { compressImage } from "../utils/imageCompressor";
 import WeatherWidget from "./WeatherWidget";
 import "../styles/day.css";
+import "../styles/photo.css";
 
 const mapHref = (q: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
@@ -13,6 +15,19 @@ export default function DayView() {
   const day = itinerary.find((d) => String(d.num) === num);
   const [done, setDone] = useLocalStorage<Record<string, boolean>>("jc:done", {});
   const [notes, setNotes] = useLocalStorage<Record<string, string>>("jc:notes", {});
+  const [photos, setPhotos] = useLocalStorage<Record<string, string>>("jc:photos", {});
+
+  const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      const compressed = await compressImage(file);
+      setPhotos({ ...photos, [day.num]: compressed });
+    } catch (err) {
+      console.error("Failed to compress image", err);
+      alert("Failed to attach photo.");
+    }
+  };
 
   if (!day) {
     return (
@@ -160,6 +175,35 @@ export default function DayView() {
           onChange={(e) => setNotes({ ...notes, [noteKey]: e.target.value })}
           placeholder={`What actually happened on Day ${day.num}?`}
         />
+        <div className="photo-attachment">
+          {photos[day.num] ? (
+            <div className="photo-preview">
+              <img src={photos[day.num]} alt={`Memory from Day ${day.num}`} />
+              <button
+                className="photo-preview__del"
+                onClick={() => {
+                  const newPhotos = { ...photos };
+                  delete newPhotos[day.num];
+                  setPhotos(newPhotos);
+                }}
+                aria-label="Remove photo"
+              >
+                &times;
+              </button>
+            </div>
+          ) : (
+            <label className="photo-upload-btn">
+              <span>📷 Attach Memory</span>
+              <input
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handlePhotoUpload}
+                style={{ display: "none" }}
+              />
+            </label>
+          )}
+        </div>
       </section>
 
       <nav className="prevnext">
