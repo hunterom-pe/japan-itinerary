@@ -1,0 +1,60 @@
+.dayhead__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.weather-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+  padding: 4px 10px;
+  background: color-mix(in srgb, var(--paper) 40%, rgba(0,0,0,0.05));
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.page--day[data-vibe="neo-tokyo"] .weather-widget {
+  font-family: var(--tech);
+  color: color-mix(in srgb, var(--ink) 90%, var(--accent));
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  backdrop-filter: blur(4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  box-shadow: 0 0 12px -4px var(--glow);
+}
+
+.weather-widget__icon {
+  font-size: 16px;
+}
+
+.weather-widget__temp {
+  font-weight: 600;
+}
+
+.weather-widget__sep {
+  opacity: 0.4;
+  font-size: 12px;
+}
+
+.weather-widget__tempf {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.weather-widget--loading {
+  opacity: 0.6;
+}
+
+.weather-widget__spinner {
+  display: inline-block;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}

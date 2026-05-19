@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { itinerary } from "../data/itinerary";
 import { themes } from "../data/themes";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import WeatherWidget from "./WeatherWidget";
 import "../styles/day.css";
 
 const mapHref = (q: string) =>
@@ -59,7 +60,10 @@ export default function DayView() {
           </div>
           <div className="dayhead__romaji">{day.romaji}</div>
           <h1 className="dayhead__title">{day.title}</h1>
-          <p className="dayhead__city">{day.city}</p>
+          <div className="dayhead__meta">
+            <p className="dayhead__city">{day.city}</p>
+            <WeatherWidget city={day.city} />
+          </div>
           <p className="dayhead__tagline">{day.tagline}</p>
         </div>
       </header>
